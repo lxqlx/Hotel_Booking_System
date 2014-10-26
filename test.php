@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <!-- <link rel="icon" href="favicon.ico">-->
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Hotel Booking System</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Hotel Booking</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">

@@ -1,3 +1,12 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+  }
+  if ($_POST["logOut"]){
+    session_unset();
+    session_destroy();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -60,10 +69,17 @@
       <div class="container">
         <?php
           include("process_DB.php");
-          if (!empty($_POST['SignInEmail'])){
-            $result = selectCustomer();
-      
+          if (!empty($_POST['SignInEmail']) || isset($_SESSION["User"])){
+            if (!isset($_SESSION["User"])){
+              $result = selectCustomer();
+            }else{
+              $result = $_SESSION["User"];
+            }
+
             if ($result){
+              if (!isset($_SESSION["User"])) {
+                  $_SESSION["User"] = $result;
+              }
               print
               '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container">
@@ -77,11 +93,11 @@
                     <a class="navbar-brand" href="index.php">Hotel Booking</a>
                   </div>
                   <div class="navbar-collapse collapse">
-                    <form class="navbar-form navbar-right" role="form">';
+                    <form action="index.php" class="navbar-form navbar-right" role="form" method="post">';
                     echo "<a href=\"index.php\"> ".$result."</a>";
                 print
-                    '<span class="icon-bar"></span>
-                    <a href="index.php"><span class="glyphicon glyphicon-user"></span> Log Out</a>
+                    '<a>&nbsp;</a>
+                    <button name="logOut" value="out" class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-log-out"></span> Log Out</button>
                     </form>
                   </div><!--/.navbar-collapse -->
                 </div>

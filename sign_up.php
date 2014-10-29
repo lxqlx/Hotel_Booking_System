@@ -32,7 +32,7 @@
     <div class="container">
 	<?php
 		ob_start();
-		include('process_signup.php');
+		include('process_DB.php');
 
 		if(!empty($_POST['UserName'])){
 			$result = insertCustomer();

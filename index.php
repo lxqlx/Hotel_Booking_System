@@ -37,36 +37,7 @@
   </head>
 
   <body>
-   
-   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Hotel Booking</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <form action="index.php" class="navbar-form navbar-right" role="form" method="post">
-            <div class="form-group">
-              <input type="email" name="SignInEmail" placeholder="Email" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <input type="password" name="SignInPassword" placeholder="Password" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-      <a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign up</a>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div> 
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
         <?php
           include("process_DB.php");
           if (!empty($_POST['SignInEmail']) || isset($_SESSION["User"])){
@@ -102,12 +73,17 @@
                   </div><!--/.navbar-collapse -->
                 </div>
               </div>';
-              print "<div class=\"alert alert-success\" role=\"alert\">";
-              print "  <a href=\"index.php\" class=\"alert-link\"> <p class=\"text-center\">Sucessful!</p></a>";
-              print "</div>";
+              print '
+              <div class="jumbotron">
+                <div class="container">
+                  <div class="alert alert-success" role="alert">
+                    <a href="index.php" class="alert-link"> <p class="text-center">Sucessful!</p></a>
+                  </div>
+                </div>
+              </div>';
             }else{
-              print 
-              '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              print '
+              <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container">
                   <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -127,14 +103,19 @@
                         <input type="password" name="SignInPassword" placeholder="Password" class="form-control" required>
                       </div>
                       <button type="submit" class="btn btn-success">Sign in</button>
-                <a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign up</a>
+                      <a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign up</a>
                     </form>
                   </div><!--/.navbar-collapse -->
                 </div>
               </div>';
-              print "<div class=\"alert alert-danger\" role=\"alert\">";
-              print "  <a href=\"index.php\" class=\"alert-link\"> <p class=\"text-center\">Invalid email or password!</p></a>";
-              print "</div>";
+              print '
+              <div class="jumbotron">
+                <div class="container">
+                  <div class="alert alert-danger" role="alert">
+                    <a href="index.php" class="alert-link"> <p class="text-center">Invalid email or password!</p></a>
+                  </div>
+                </div>
+              </div>';
             }
           }
           else{
@@ -159,7 +140,7 @@
                       <input type="password" name="SignInPassword" placeholder="Password" class="form-control" required>
                     </div>
                     <button type="submit" class="btn btn-success">Sign in</button>
-              <a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign up</a>
+                    <a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign up</a>
                   </form>
                 </div><!--/.navbar-collapse -->
               </div>
@@ -202,8 +183,6 @@
             </div> <!-- /container -->';
           }
         ?>
-      </div>
-    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

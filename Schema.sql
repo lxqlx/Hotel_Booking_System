@@ -33,6 +33,7 @@ REFERENCES Hotel(name, address),
 PRIMARY KEY(hotel_name, hotel_address, room_type, room_date));
 
 CREATE TABLE Booking (
+email VARCHAR(256),
 booking_id CHAR(10) UNIQUE,
 hotel_name VARCHAR(256),
 hotel_address VARCHAR(256),
@@ -42,5 +43,7 @@ quantity INTEGER,
 total_price NUMERIC CHECK (total_price>0),
 FOREIGN KEY (hotel_name, hotel_address, room_type, room_date)
 REFERENCES RoomType(hotel_name, hotel_address, room_type, room_date),
+FOREIGN KEY (email)
+REFERENCES Customer(email),
 PRIMARY KEY(booking_id, hotel_name, hotel_address, room_type, room_date)
 );

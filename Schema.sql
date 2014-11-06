@@ -6,6 +6,9 @@ password VARCHAR(256) CHECK (LENGTH(password) >5));
 CREATE TABLE Hotel (
 name VARCHAR(256),
 address VARCHAR(256),
+country VARCHAR(256),
+city VARCHAR(256),
+street VARCHAR(256),
 rating INTEGER DEFAULT 0,
 facility VARCHAR(256),
 phone_no VARCHAR(20),
